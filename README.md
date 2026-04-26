@@ -4,8 +4,9 @@
 
 Taily is a travel planning MVP that pairs **itinerary generation** with an explicit **fit layer**: it builds a lightweight traveler profile, generates a trip, and shows (and explains) how well that trip matches the traveler—so you can refine toward a better fit instead of restarting from scratch.
 
-**Live Demo**: `https://taily-three.vercel.app`  
-**Demo Video**: `https://www.youtube.com/watch?v=6lqpFsmA-7E`
+**Live Demo:** https://taily-three.vercel.app  
+**Demo Video:** https://www.youtube.com/watch?v=6lqpFsmA-7E  
+**Case Study:** https://www.notion.so/Taily-AI-Travel-Planning-with-Traveler-Trip-Matching-34e247c12c1f80bfb814d888eaf4321f?source=copy_link
 
 ---
 
