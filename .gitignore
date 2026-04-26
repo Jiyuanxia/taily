@@ -1,0 +1,28 @@
+# Secrets / local env
+.env
+.env.*
+!.env.example
+
+# Node
+**/node_modules/
+**/dist/
+**/dist-ssr/
+
+# Java / Maven
+**/target/
+**/*.log
+**/.mvn/
+**/.classpath
+**/.project
+**/.settings/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+

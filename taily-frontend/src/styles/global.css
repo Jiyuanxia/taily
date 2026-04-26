@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: radial-gradient(
+      1200px 600px at 20% -10%,
+      rgba(111, 92, 255, 0.12),
+      transparent 60%
+    ),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+textarea {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 2 * var(--space-5)));
+  margin: 0 auto;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.title {
+  font-weight: 560;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.h1 {
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+}
+
+.h2 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Trip input ambient suggestion bubbles */
+.bubbleField {
+  position: relative;
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+}
+
+.smartPromptWrap {
+  position: relative;
+  z-index: 5; /* keep input as the anchor */
+  border-radius: var(--radius-m);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.smartPromptHint {
+  position: absolute;
+  inset: 14px 14px 14px 14px;
+  color: rgba(127, 127, 140, 0.95);
+  opacity: 0.75;
+  line-height: 1.4;
+  font-size: 16px;
+  pointer-events: none;
+  white-space: pre-wrap;
+}
+
+.bubble {
+  position: absolute;
+  z-index: 1; /* behind the input card */
+  border-radius: 999px;
+  padding: 8px 12px;
+  border: 1px solid rgba(19, 18, 26, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 248, 252, 0.72));
+  color: rgba(19, 18, 26, 0.74);
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 26px rgba(19, 18, 26, 0.06);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease,
+    z-index 0ms linear 220ms;
+  opacity: var(--bubbleOpacity, 0.35);
+  transform: translate3d(0, 0, 0);
+}
+
+.bubble:hover,
+.bubble:focus-visible {
+  z-index: 9; /* forward above other bubbles + input card */
+  opacity: min(0.92, calc(var(--bubbleOpacity, 0.35) + 0.35));
+  color: rgba(19, 18, 26, 0.86);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 250, 255, 0.86));
+  box-shadow: 0 18px 44px rgba(19, 18, 26, 0.12);
+  transform: translate3d(0, -3px, 0);
+}
+
+.bubble[data-anim='1'] {
+  animation: bubbleFloat 14s ease-in-out infinite;
+  animation-delay: var(--bubbleDelay, 0s);
+}
+
+@keyframes bubbleFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble[data-anim='1'] {
+    animation: none;
+  }
+  .bubble:hover,
+  .bubble:focus-visible {
+    transform: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bubble {
+    border: 1px solid rgba(242, 241, 247, 0.12);
+    background: linear-gradient(180deg, rgba(28, 27, 42, 0.92), rgba(23, 22, 34, 0.70));
+    color: rgba(242, 241, 247, 0.82);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+  }
+  .bubble:hover,
+  .bubble:focus-visible {
+    color: rgba(242, 241, 247, 0.92);
+    background: linear-gradient(180deg, rgba(33, 32, 50, 0.98), rgba(23, 22, 34, 0.84));
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+  }
+}

@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+taily:
+  openai:
+    enabled: ${OPENAI_ENABLED:true}
+    api-key: ${OPENAI_API_KEY:}
+    model: ${OPENAI_MODEL:gpt-4.1-mini}
+    image-model: ${OPENAI_IMAGE_MODEL:dall-e-2}
+    portrait-size: ${OPENAI_PORTRAIT_SIZE:512x512}
+  cors:
+    allowed-origin-patterns: ${CORS_ALLOWED_ORIGIN_PATTERNS:http://localhost:*,http://127.0.0.1:*}
