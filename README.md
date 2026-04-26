@@ -4,6 +4,35 @@
 
 Taily is a travel planning MVP that pairs **itinerary generation** with an explicit **fit layer**: it builds a lightweight traveler profile, generates a trip, and shows (and explains) how well that trip matches the traveler—so you can refine toward a better fit instead of restarting from scratch.
 
+**Live Demo**: `https://taily-three.vercel.app`  
+**Demo Video**: `https://www.youtube.com/watch?v=6lqpFsmA-7E`
+
+---
+
+## Screenshots
+
+### Welcome → onboarding
+
+![Welcome page](assets/screenshots/welcome.png)
+
+![Onboarding](assets/screenshots/onboarding.png)
+
+### Trip input → match + result
+
+![Trip input](assets/screenshots/trip-input.png)
+
+![Match level (overlap radar)](assets/screenshots/result-match-level.png)
+
+![Trip summary + extracted preferences + itinerary](assets/screenshots/result-itinerary.png)
+
+### Profiles + refinement
+
+![User profile](assets/screenshots/user-profile.png)
+
+![Trip profile](assets/screenshots/trip-profile.png)
+
+![Refine](assets/screenshots/refine-input.png)
+
 ---
 
 ## What Taily is
@@ -117,7 +146,7 @@ npm install
 npm run dev
 ```
 
-Frontend will connect to the backend at `http://localhost:8080` by default.
+Frontend will connect to the backend at `http://localhost:8080` by default (or `VITE_API_BASE_URL` if set).
 
 ---
 
@@ -204,10 +233,12 @@ Engineering
 
 ## Deployment / demo notes
 
-This repo is set up for local development and demo recording. Taily can be deployed as two separate services:
+Taily is deployed as two separate services:
 
 - **Frontend**: Vercel (Vite/React static build)
 - **Backend**: Render (Spring Boot API)
+
+**Live demo**: `https://taily-three.vercel.app`
 
 ### Deploy the backend to Render
 
@@ -262,13 +293,4 @@ Then redeploy and verify the app can complete the loop end-to-end.
 - Use the committed templates:
   - `taily-backend/.env.example`
   - `taily-frontend/.env.example`
-
----
-
-## Release-prep checklist (portfolio)
-
-- [ ] Confirm no secrets are committed (`.env` files should be local-only; use `.env.example` templates)
-- [ ] Run the full loop locally: Welcome → Onboarding → Trip input → Result → Refine
-- [ ] Verify the backend runs with `OPENAI_ENABLED=false` (demo-friendly without keys)
-- [ ] Add 1–3 screenshots or a short GIF for GitHub (optional but recommended)
 
