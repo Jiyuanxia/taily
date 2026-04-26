@@ -8,11 +8,11 @@ FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
 # Cache deps first
-COPY pom.xml ./
+COPY taily-backend/pom.xml ./pom.xml
 RUN mvn -q -DskipTests dependency:go-offline
 
 # Build
-COPY src ./src
+COPY taily-backend/src ./src
 RUN mvn -q -DskipTests package
 
 
